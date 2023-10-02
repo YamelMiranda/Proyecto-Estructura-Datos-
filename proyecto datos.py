@@ -3,7 +3,7 @@
 
 recoleccion_datos = []
 
-clients = ["Charlie Gregorio", "Juan Gonzalo", "Idalberto Chiavenato"] 
+clients = ["Charlie Gregorio", "Juan Gonzalo", "Idalberto Chiavenato"]
 recoleccion_datos.append(clients)
 
 num_id = ["402-565852-4", "602-875263-8", "451-562369-7"]
@@ -24,15 +24,13 @@ recoleccion_datos.append(codigo_seguridad)
 saldos = [1500.00, 500.00, 2000.00]
 recoleccion_datos.append(saldos)
 
-## Para consultar ##
-
 while True:
     opcion = int(input("""Buenas, elija la opción que desee consultar
     1) Unidimensional
     2) Bidimensional
     3) Arreglos de más de dos dimensiones
     4) Matrices poco densas
-    5) Matriz Diagonal
+    5) Matriz Tridiagonal
     6) Salir
     
     """))
@@ -40,57 +38,45 @@ while True:
     if opcion == 1:
         print("Nombre del Cliente:", recoleccion_datos[0])
     elif opcion == 2:
-        print("Tarjeta Encontrada:", recoleccion_datos)
-        
+        print("Tarjeta Encontrada:")
+        for fila in recoleccion_datos:
+            print(fila)
     elif opcion == 3:
-        
-# Creamos una matriz de mas de dos arreglos para representar la info de las tarjetas
-# Cada fila representa una tarjeta, cada columna un atributo
-     credit_card_data = [
-     ["5655-5269-7876-9996", '02/27', 1500.00],
-     ["4512-8999-6333-7858", '05/26', 500.00],
-     ["4555-7886-3621-2222", '11/24', 2000.00]
-     ]
-# Imprime la información de una tarjeta de credito específica
-     print("Número de Tarjeta:", credit_card_data[0][0])
-     print("Fecha de Vencimiento:", credit_card_data[0][1])
-     print("Saldo Disponible:", credit_card_data[0][2])
-     
-#####################################################################
-
+        credit_card_data = [
+            ["5655-5269-7876-9996", '02/27', 1500.00],
+            ["4512-8999-6333-7858", '05/26', 500.00],
+            ["4555-7886-3621-2222", '11/24', 2000.00]
+        ]
+        print("Tarjetas encontradas:")
+        for tarjeta in credit_card_data:
+            print(f"{tarjeta[0]} | {tarjeta[1]} | {tarjeta[2]}")
     elif opcion == 4:
-
-# Creamos una matriz poco densa para representar transacciones
-# Cada fila representa una tarjeta, cada columna un mes 
-     Matriz_transacciones = [
-     [0, 100.00, 0],
-     [50.00, 0, 75.00],
-     [0, 25.00, 0]
-     ]
-
-# Imprimimos las transacciones de una tarjeta
-     print("Transacciones de Tarjeta 1:")
-     for month, amount in enumerate(Matriz_transacciones[0]):
-       if amount > 0:
-        print(f"Enero: ${amount} en transacciones")
-########################################################################
-
+        Matriz_transacciones = [
+            ["$0", "$100.00", "$0"],
+            ["$50.00", "$0", "$75.00"],
+            ["$0", "$25.00", "$0"]
+        ]
+        print("Matriz de Transacciones:")
+        for fila in Matriz_transacciones:
+            print(f"{fila[0]:<10} | {fila[1]:<10} | {fila[2]:<10}")
     elif opcion == 5:
-# Creamos una matriz tridiagonal para representar el historial de pagos
-# Cada fila representa una tarjeta, cada columna un mes
-     Matriz_pagos = [
-     [200.00, 0, 0],
-     [0, 150.00, 0],
-     [0, 0, 180.00]
-     ]
-# Imprimimos el historial de pagos de una tarjeta
-     print("Historial de Pagos de Tarjeta 2:")
-     for i, row in enumerate(Matriz_pagos):
-      for j, amount in enumerate(row):
-        if amount > 0:
-            print(f"Mes {i + 1}, Mes {j + 1}: ${amount} pagado")
-############################################################################### 
-        
+        Matriz_pagos = [
+            [200.00, 0, 0],
+            [0, 150.00, 0],
+            [0, 0, 180.00]
+        ]
+        print("Historial de Pagos de Tarjeta 2:")
+        for i, row in enumerate(Matriz_pagos):
+            for j, amount in enumerate(row):
+                if amount > 0:
+                    print(f"Mes {i + 1}, Mes {j + 1}: ${amount} pagado")
+
+        # Imprimir la matriz con barras verticales
+        for fila in Matriz_pagos:
+            for elemento in fila:
+                print(f"| {elemento:.2f} ", end="")
+            print("|")  # Agrega una barra vertical al final de cada fila
+            
     elif opcion == 6:
         print("Saliendo...")
         break
