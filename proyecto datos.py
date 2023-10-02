@@ -36,11 +36,39 @@ while True:
     """))
 
     if opcion == 1:
-        print("Nombre del Cliente:", recoleccion_datos[0])
+        print("Elige el arreglo unidimensional que deseas ver:")
+        print("1) Nombres de Clientes")
+        print("2) Números de ID")
+        print("3) Estado de Activación")
+        print("4) Números de Tarjeta")
+        print("5) Fechas de Vencimiento")
+        print("6) Códigos de Seguridad")
+        print("7) Saldos")
+        
+        sub_opcion = int(input("Ingresa el número de la opción que deseas: "))
+
+        if sub_opcion == 1:
+            print("Nombres de Clientes:", recoleccion_datos[0])
+        elif sub_opcion == 2:
+            print("Números de ID:", recoleccion_datos[1])
+        elif sub_opcion == 3:
+            print("Estado de Activación:", recoleccion_datos[2])
+        elif sub_opcion == 4:
+            print("Números de Tarjeta:", recoleccion_datos[3])
+        elif sub_opcion == 5:
+            print("Fechas de Vencimiento:", recoleccion_datos[4])
+        elif sub_opcion == 6:
+            print("Códigos de Seguridad:", recoleccion_datos[5])
+        elif sub_opcion == 7:
+            print("Saldos:", recoleccion_datos[6])
+        else:
+            print("Opción no válida.")
+    
     elif opcion == 2:
         print("Tarjeta Encontrada:")
         for fila in recoleccion_datos:
             print(fila)
+    
     elif opcion == 3:
         credit_card_data = [
             ["5655-5269-7876-9996", '02/27', 1500.00],
@@ -50,6 +78,7 @@ while True:
         print("Tarjetas encontradas:")
         for tarjeta in credit_card_data:
             print(f"{tarjeta[0]} | {tarjeta[1]} | {tarjeta[2]}")
+    
     elif opcion == 4:
         Matriz_transacciones = [
             ["$0", "$100.00", "$0"],
@@ -59,6 +88,7 @@ while True:
         print("Matriz de Transacciones:")
         for fila in Matriz_transacciones:
             print(f"{fila[0]:<10} | {fila[1]:<10} | {fila[2]:<10}")
+    
     elif opcion == 5:
         Matriz_pagos = [
             [200.00, 0, 0],
@@ -76,9 +106,10 @@ while True:
             for elemento in fila:
                 print(f"| {elemento:.2f} ", end="")
             print("|")  # Agrega una barra vertical al final de cada fila
-            
+    
     elif opcion == 6:
         print("Saliendo...")
         break
+    
     else:
         print("Opción no válida. Introduzca un número del 1 al 6.")
